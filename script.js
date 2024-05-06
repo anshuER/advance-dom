@@ -51,6 +51,38 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  }
+});
+
+// document.querySelectorAll('.nav__link').forEach(function (el) {
+//   el.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({
+//       behavior: 'smooth',
+//     });
+//   });
+// });
+
+// const h1 = document.querySelector('h1');
+
+// const alertH1 = function (e) {
+//   alert('Great! You are reading the heading.');
+
+//   h1.removeEventListener('mouseenter', alertH1);
+// };
+
+// h1.addEventListener('mouseenter', alertH1);
+
 // querySelector
 // getElementById
 // const header = document.querySelector('.header');
@@ -85,3 +117,13 @@ btnScrollTo.addEventListener('click', function (e) {
 //   Number.parseFloat(getComputedStyle(msg).height, 10) + 30 + 'px';
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// EVents trigger at the top of document then the capturing phase will happen this will go down to the
+// element where the events trigger when it reached to element target phase begin
+// and then event occured then it travels again to document its called bubbling
+
+// const h1 = document.querySelector('h1');
+// console.log(h1.querySelectorAll('.highlight')); // select element of class highlight child of h1
+// console.log(h1.childNodes);
+// console.log(h1.children);
+// h1.firstElementChild.style.color = 'white';
